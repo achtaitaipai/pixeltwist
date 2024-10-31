@@ -50,6 +50,16 @@ h6 {
 }
 
 body {
-	background-color: var(--oc-gray-5);
+	font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro,
+		sans-serif;
+	background-color: var(--oc-gray-1);
 	color: var(--oc-gray-8);
+}
+
+button {
+	padding: 0.2rem 0.5rem;
+	background: var(--oc-gray-2);
+	border: 1px solid var(--oc-gray-5);
+	border-radius: 0.2rem;
+	cursor: pointer;
 }
