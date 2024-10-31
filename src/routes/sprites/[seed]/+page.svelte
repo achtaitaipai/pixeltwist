@@ -16,7 +16,8 @@
 		<canvas bind:this={canvas}></canvas>
 	</div>
 	<aside>
-		<h3>Les Boutons</h3>
+		<button onclick={() => sprite.copyToClipboard()}>Copy code</button>
+		<button onclick={() => sprite.download(canvas)}>Download as png</button>
 	</aside>
 </main>
 
