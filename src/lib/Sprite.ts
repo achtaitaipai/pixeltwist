@@ -45,11 +45,11 @@ export class Sprite {
 				for (let dy = -1; dy <= 1; dy += 2) {
 					for (let dx = -1; dx <= 1; dx += 2) {
 						const cell = grid[y + dy]?.[x + dx]
-						if (grid[y][x] === '.') continue
-						if (!cell || cell === '.') emptyNeighborCount++
+						if (grid[y][x] === '.' || !cell) continue
+						if (cell === '.') emptyNeighborCount++
 					}
 				}
-				if (emptyNeighborCount > 2) grid[y][x] = '0'
+				if (emptyNeighborCount > 1) grid[y][x] = '0'
 			}
 		}
 
