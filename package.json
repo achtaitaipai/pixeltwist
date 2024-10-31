@@ -4,7 +4,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build && cp _serverEntry.cjs build/entry.cjs && cp package.json build/package.json && cp package-lock.json build/package-lock.json .htaccess build/.htaccess",
+		"build": "vite build && cp _serverEntry.cjs build/entry.cjs && cp package.json build/package.json && cp package-lock.json build/package-lock.json && cp .htaccess build/.htaccess",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
