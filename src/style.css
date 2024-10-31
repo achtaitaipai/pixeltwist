@@ -51,4 +51,5 @@ h6 {
 
 body {
 	background-color: var(--oc-gray-5);
+	color: var(--oc-gray-8);
 }

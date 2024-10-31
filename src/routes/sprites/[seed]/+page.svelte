@@ -9,15 +9,31 @@
 	$effect(() => {
 		sprite.render(canvas)
 	})
+
+	function copyCode() {
+		navigator.clipboard.writeText(sprite.code)
+	}
+
+	function download() {
+		const url = canvas.toDataURL()
+		const link = document.createElement('a')
+		link.href = url
+		link.download = 'sprite.png'
+		link.click()
+		link.remove()
+	}
 </script>
 
 <main>
+	<nav>
+		<a href="/">&leftarrow;</a>
+	</nav>
 	<div class="canvasWrapper">
 		<canvas bind:this={canvas}></canvas>
 	</div>
 	<aside>
-		<button onclick={() => sprite.copyToClipboard()}>Copy code</button>
-		<button onclick={() => sprite.download(canvas)}>Download as png</button>
+		<button onclick={copyCode}>Copy code</button>
+		<button onclick={download}>Download as png</button>
 	</aside>
 </main>
 
@@ -26,6 +42,17 @@
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
+	}
+	nav {
+		position: fixed;
+		top: 0.25rem;
+		left: 1rem;
+		a {
+			font-size: 2rem;
+			font-weight: bold;
+			text-decoration: none;
+			color: inherit;
+		}
 	}
 	.canvasWrapper {
 		width: 100%;

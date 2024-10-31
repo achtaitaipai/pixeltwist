@@ -76,21 +76,11 @@ export class Sprite {
 		}
 	}
 
-	copyToClipboard() {
+	get code() {
 		let text = '`\n'
 		text += this.#grid.map((r) => '\t\t' + r.join('')).join('\n')
 		text += '\n\t\t`'
-		navigator.clipboard.writeText(text)
-	}
-
-	download(canvas: HTMLCanvasElement) {
-		const fileName = crypto.randomUUID().split('-')[0]
-		const url = canvas.toDataURL()
-		const link = document.createElement('a')
-		link.href = url
-		link.download = fileName + '.png'
-		link.click()
-		link.remove()
+		return text
 	}
 }
 
