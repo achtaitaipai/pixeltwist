@@ -82,6 +82,31 @@ export class Sprite {
 		text += '\n\t\t`'
 		return text
 	}
+
+	mirrorX() {
+		this.#grid = this.#grid.map((r) => r.reverse())
+	}
+
+	mirrorY() {
+		let grid = this.#grid.map((r) => [...r])
+		for (let y = 0; y < this.#height; y++) {
+			for (let x = 0; x < this.#width; x++) {
+				grid[this.#height - 1 - y][x] = this.#grid[y][x]
+			}
+		}
+		this.#grid = grid
+	}
+
+	rotate() {
+		let grid = Array.from({ length: this.#width }, () => Array(this.#height).fill('.'))
+		for (let y = 0; y < this.#height; y++) {
+			for (let x = 0; x < this.#width; x++) {
+				grid[x][y] = this.#grid[this.#height - 1 - y][x]
+			}
+		}
+		;[this.#height, this.#width] = [this.#width, this.#height]
+		this.#grid = grid
+	}
 }
 
 const templates = {

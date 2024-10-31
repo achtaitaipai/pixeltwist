@@ -10,6 +10,21 @@
 		sprite.render(canvas)
 	})
 
+	function rotate() {
+		sprite.rotate()
+		sprite.render(canvas)
+	}
+
+	function mirrorX() {
+		sprite.mirrorX()
+		sprite.render(canvas)
+	}
+
+	function mirrorY() {
+		sprite.mirrorY()
+		sprite.render(canvas)
+	}
+
 	function copyCode() {
 		navigator.clipboard.writeText(sprite.code)
 	}
@@ -32,8 +47,15 @@
 		<canvas bind:this={canvas}></canvas>
 	</div>
 	<aside>
-		<button onclick={copyCode}>Copy code</button>
-		<button onclick={download}>Download as png</button>
+		<div class="btns">
+			<button onclick={rotate}>Rotate</button>
+			<button onclick={mirrorY}>MirrorY</button>
+			<button onclick={mirrorX}>MirrorX</button>
+		</div>
+		<div class="btns">
+			<button onclick={copyCode}>Copy code</button>
+			<button onclick={download}>Download as png</button>
+		</div>
 	</aside>
 </main>
 
@@ -71,5 +93,14 @@
 		padding: 1rem;
 		flex-shrink: 0;
 		background-color: var(--oc-gray-1);
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+	.btns {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
 	}
 </style>
