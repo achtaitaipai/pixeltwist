@@ -4,7 +4,7 @@
 
 	let { data }: { data: PageData } = $props()
 	let canvas: HTMLCanvasElement
-	const sprite = new Sprite(data)
+	const sprite = new Sprite({ width: data.width, height: data.height, seed: data.seed })
 
 	$effect(() => {
 		sprite.render(canvas)
@@ -41,7 +41,18 @@
 
 <main>
 	<nav>
-		<a href="/">&leftarrow;</a>
+		<a href="/?seed={data.pageseed}" aria-label="close">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke-width="1.5"
+				stroke="currentColor"
+				class="size-6"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+			</svg>
+		</a>
 	</nav>
 	<div class="canvasWrapper">
 		<canvas bind:this={canvas}></canvas>
@@ -68,12 +79,15 @@
 	nav {
 		position: fixed;
 		top: 0.25rem;
-		left: 1rem;
+		right: 0.5rem;
 		a {
 			font-size: 2rem;
-			font-weight: bold;
 			text-decoration: none;
 			color: inherit;
+		}
+		svg {
+			width: 1em;
+			height: 1em;
 		}
 	}
 	.canvasWrapper {
@@ -88,11 +102,13 @@
 		image-rendering: crisp-edges;
 		image-rendering: pixelated;
 		object-fit: contain;
+		background-color: var(--oc-gray-5);
+		/* border-radius: 0.5rem; */
 	}
 	aside {
 		padding: 1rem;
 		flex-shrink: 0;
-		background-color: var(--oc-gray-1);
+		background-color: var(--oc-gray-4);
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;

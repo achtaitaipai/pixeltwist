@@ -9,7 +9,7 @@ export const load: PageLoad = ({ url }) => {
 			height,
 			seed = Math.floor(Math.random() * 0xffffff)
 		} = spriteParamsSchema.parse(Object.fromEntries(url.searchParams.entries()))
-		return { width, height, seed }
+		return { width, height, pageSeed: seed }
 	} catch (e) {
 		error(400)
 	}
