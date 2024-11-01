@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { Random } from '$lib/Random'
 	import ScrollSpy from '$lib/components/ScrollSpy.svelte'
+	import Settings from '$lib/components/Settings.svelte'
 	import SpriteImage from '$lib/components/SpriteImage.svelte'
 	import type { PageData, Snapshot } from './$types'
 
 	let { data }: { data: PageData } = $props()
 	const { width, height, pageSeed } = data
 	const random = new Random(pageSeed)
-	console.log(pageSeed)
 
 	let seeds: number[] = $state([])
 
@@ -24,6 +24,7 @@
 	}
 </script>
 
+<Settings {width} {height} seed={pageSeed} />
 <main>
 	{#each seeds as seed}
 		<a href={getUrl(seed)} id={seed.toString()}>
