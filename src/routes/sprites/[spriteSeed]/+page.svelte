@@ -73,6 +73,7 @@
 <style>
 	main {
 		height: 100vh;
+		height: 100svh;
 		display: flex;
 		flex-direction: column;
 	}
@@ -103,7 +104,6 @@
 		image-rendering: pixelated;
 		object-fit: contain;
 		background-color: var(--oc-gray-5);
-		/* border-radius: 0.5rem; */
 	}
 	aside {
 		padding: 1rem;
