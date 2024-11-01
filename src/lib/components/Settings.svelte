@@ -1,14 +1,12 @@
 <script lang="ts">
 	let { width = 8, height = 8, seed }: { width?: number; height?: number; seed: number } = $props()
-	let inputWidth = $state(width)
-	let inputHeight = $state(height)
 </script>
 
 <header>
 	<form action="/" data-sveltekit-reload>
 		<div class="input">
 			<label for="width">Width {width}</label>
-			<input type="range" name="width" bind:value={width} id="width" required min="1" max="24" />
+			<input type="range" name="width" bind:value={width} id="width" required min="4" max="24" />
 		</div>
 		<div class="input">
 			<label for="height">Height {height}</label>
