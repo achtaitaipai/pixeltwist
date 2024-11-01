@@ -10,7 +10,7 @@
 		</div>
 		<div class="input">
 			<label for="height">Height {height}</label>
-			<input type="range" name="height" bind:value={height} id="height" required min="1" max="24" />
+			<input type="range" name="height" bind:value={height} id="height" required min="4" max="24" />
 		</div>
 		<div class="input" style="margin-right:auto;">
 			<label for="seed">Seed : </label>
