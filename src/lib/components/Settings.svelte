@@ -23,7 +23,7 @@
 <style>
 	header {
 		padding: 0.8rem 1rem;
-		background-color: var(--oc-gray-4);
+		background-color: var(--oc-gray-5);
 	}
 	form {
 		display: flex;
