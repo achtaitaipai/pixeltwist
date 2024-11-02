@@ -3,20 +3,20 @@
 	import ScrollSpy from '$lib/components/ScrollSpy.svelte'
 	import Settings from '$lib/components/Settings.svelte'
 	import SpriteImage from '$lib/components/SpriteImage.svelte'
-	import type { PageData, Snapshot } from './$types'
+	import type { PageData } from './$types'
 
 	let { data }: { data: PageData } = $props()
-	const { width, height, pageSeed } = data
+	const { width, height, pageSeed, length } = data
 	const random = new Random(pageSeed)
 
-	let seeds: number[] = $state([])
+	let seeds: number[] = $state(getSeeds(length))
 
 	function getSeeds(count: number) {
 		return Array.from({ length: count }, () => random.int(0xfffffff))
 	}
 
 	function getUrl(seed: number) {
-		let url = '/sprites/' + seed + '?pageseed=' + pageSeed
+		let url = '/sprites/' + seed + '?pageseed=' + pageSeed + '&length=' + seeds.length
 		if (!width && !height) return url
 		if (width) url += '&width=' + width
 		if (height) url += '&height=' + height
@@ -43,5 +43,9 @@
 		align-items: center;
 		justify-items: center;
 		gap: 6rem;
+	}
+	a {
+		scroll-margin-top: 50vh;
+		scroll-margin-top: 50svh;
 	}
 </style>
