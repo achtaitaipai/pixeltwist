@@ -22,6 +22,8 @@
 
 <style>
 	header {
+		position: sticky;
+		top: 0;
 		padding: 0.8rem 1rem;
 		background-color: var(--oc-gray-5);
 	}
@@ -32,7 +34,11 @@
 	}
 	.input {
 		display: flex;
-		align-items: center;
-		gap: 0.25rem;
+		flex-direction: column;
+		justify-content: space-evenly;
+		flex-grow: 1;
+	}
+	button {
+		align-self: flex-end;
 	}
 </style>
