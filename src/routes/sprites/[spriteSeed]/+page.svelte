@@ -49,7 +49,8 @@
 				viewBox="0 0 24 24"
 				stroke-width="1.5"
 				stroke="currentColor"
-				class="size-6"
+				width="2em"
+				height="2em"
 			>
 				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
 			</svg>
@@ -83,13 +84,8 @@
 		top: 0.25rem;
 		right: 0.5rem;
 		a {
-			font-size: 2rem;
 			text-decoration: none;
 			color: inherit;
-		}
-		svg {
-			width: 1em;
-			height: 1em;
 		}
 	}
 	.canvasWrapper {
