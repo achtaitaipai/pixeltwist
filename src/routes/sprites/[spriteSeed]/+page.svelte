@@ -3,7 +3,7 @@
 	import type { PageData } from './$types'
 
 	let { data }: { data: PageData } = $props()
-	const { width = 8, height = 8, seed, pageseed, length } = data
+	const { width = 8, height = 8, seed, pageseed, page } = data
 	let canvas: HTMLCanvasElement
 	const sprite = new Sprite({ width, height, seed })
 
@@ -42,10 +42,7 @@
 
 <main>
 	<nav>
-		<a
-			href="/?seed={pageseed}&length={length}&width={width}&height={height}#{seed}"
-			aria-label="close"
-		>
+		<a href="/?seed={pageseed}&width={width}&height={height}&page={page}#{seed}" aria-label="close">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
