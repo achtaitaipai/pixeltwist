@@ -1,8 +1,32 @@
 <script lang="ts">
 	let { width = 8, height = 8, seed }: { width?: number; height?: number; seed: number } = $props()
+	let translateY = $state(0)
+	let elementHeight = $state(0)
+	let scrollY = $state(0)
+	let prevScroolY = $state(0)
+	function onscroll() {
+		const maxScroll =
+			Math.max(
+				document.body.scrollHeight,
+				document.body.offsetHeight,
+				document.documentElement.clientHeight,
+				document.documentElement.scrollHeight,
+				document.documentElement.offsetHeight
+			) - window.innerHeight
+		if (window.scrollY < 0 || window.scrollY > maxScroll) {
+			return
+		}
+		console.log(maxScroll, scrollY)
+		scrollY = window.scrollY
+		const diff = scrollY - prevScroolY
+		translateY = Math.max(0, Math.min(translateY + diff, elementHeight))
+		prevScroolY = scrollY
+	}
 </script>
 
-<header>
+<svelte:window {onscroll} />
+
+<header bind:clientHeight={elementHeight} style="transform:translateY(-{translateY}px)">
 	<form action="/" data-sveltekit-reload>
 		<div class="input">
 			<label for="width">Width {width}</label>
