@@ -34,10 +34,15 @@
 	</div>
 	<nav class="pagination">
 		{#if pageIndex > 0}
-			<a href="/?page={pageIndex - 1}&seed={pageSeed}" data-sveltekit-reload>&leftarrow; previous</a
+			<a
+				href="/?page={pageIndex - 1}&seed={pageSeed}&width={width ?? 8}&height={height ?? 8}"
+				data-sveltekit-reload>&leftarrow; previous</a
 			>
 		{/if}
-		<a href="/?page={pageIndex + 1}&seed={pageSeed}" data-sveltekit-reload>next &rightarrow;</a>
+		<a
+			href="/?page={pageIndex + 1}&seed={pageSeed}&width={width ?? 8}&height={height ?? 8}"
+			data-sveltekit-reload>next &rightarrow;</a
+		>
 	</nav>
 </main>
 

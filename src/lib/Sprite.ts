@@ -41,15 +41,18 @@ export class Sprite {
 
 		for (let y = 0; y < this.#height; y++) {
 			for (let x = 0; x < this.#width; x++) {
-				let emptyNeighborCount = 0
-				for (let dy = -1; dy <= 1; dy += 2) {
-					for (let dx = -1; dx <= 1; dx += 2) {
-						const cell = grid[y + dy]?.[x + dx]
-						if (grid[y][x] === '.' || !cell) continue
-						if (cell === '.') emptyNeighborCount++
-					}
-				}
-				if (emptyNeighborCount > 1) grid[y][x] = '0'
+				const cell = grid[y][x]
+				if (cell === '.') continue
+				const top = grid[y - 1]?.[x]
+				const right = grid[y][x + 1]
+				const bottom = grid[y + 1]?.[x]
+				const left = grid[y][x - 1]
+				const count = [top, right, bottom, left].reduce(
+					(acc, cur) => (!cur || cur === '.' ? acc + 1 : acc),
+					0
+				)
+				// if (count === 4) grid[y][x] = '.'
+				if (count >= 2) grid[y][x] = '0'
 			}
 		}
 
